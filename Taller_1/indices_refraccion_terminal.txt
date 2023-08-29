@@ -1,0 +1,17 @@
+cd Taller_1/
+touch materiales.txt
+awk -F "," '{print $1}' indices_refraccion.csv >> materiales.txt
+touch indices_refraccion_terminal.txt
+mkdir vidrio materia_inorgánica materia_orgánica mezclas exotico combustible ashesivos_ópticos 
+cd vidrio
+touch links.txt
+cd --
+cd Onedrive/Documentos/jsofgh/FISI2526-MetCompComp1-202320/Taller_1/
+awk -F '$1 ~/Vidrio/ {print $4}' indices_refraccion.csv >> vidrio/links.txt
+wget -i links.txt
+cd --
+cd Onedrive/Documentos/jsofgh/FISI2526-MetCompComp1-202320/Taller_1
+se repitió para cada carpeta el mismo procedimiento para tener los archivos descargados en cada carpeta. Primero un archivo que tenga los 
+links y luego se descargaron con wget.
+
+
