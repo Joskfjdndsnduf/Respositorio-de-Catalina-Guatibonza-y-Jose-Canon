@@ -8,9 +8,8 @@ def func(x):
 
 def Derivative(f,x,h=1e-6):
     return (f(x+h)-f(x-h))/(2*h)
-der=(func,x)
 
-def GetNewtonMethod(f,df,xn,itmax=100,precision=1e-8):
+def boltzano(f,df,xn,itmax=100,precision=1e-8):
     
     error = 1.
     it = 0
@@ -20,7 +19,7 @@ def GetNewtonMethod(f,df,xn,itmax=100,precision=1e-8):
         try:
             
             xn1 = xn - f(xn)/df(f,xn)
-   
+            # Criterio de parada
             error = np.abs(f(xn)/df(f,xn))
             
         except ZeroDivisionError:
@@ -29,13 +28,16 @@ def GetNewtonMethod(f,df,xn,itmax=100,precision=1e-8):
         xn = xn1
         it += 1
         
-
+   # print('Raiz',xn,it)
     
     if it == itmax:
         return Flase
     else:
         return xn
-print(GetNewtonMethod(func,der,1.))
+
+f=boltzano(func,Derivative,2)
+
+
 
 
 
