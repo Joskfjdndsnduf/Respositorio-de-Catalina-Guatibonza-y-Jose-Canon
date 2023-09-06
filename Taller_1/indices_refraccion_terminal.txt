@@ -13,5 +13,9 @@ cd --
 cd Onedrive/Documentos/jsofgh/FISI2526-MetCompComp1-202320/Taller_1
 se repitió para cada carpeta el mismo procedimiento para tener los archivos descargados en cada carpeta. Primero un archivo que tenga los 
 links y luego se descargaron con wget.
-
+lista=[]
+        for i in data['DAtA'][0]['data']:
+            tupla=[]
+            tupla.append()
+print (data["DATA"][1]['data'])
 
