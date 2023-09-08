@@ -8,40 +8,45 @@ Created on Thu Sep  7 20:12:27 2023
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 
-valores = pd.read_csv('graphite_mceligot_2016.csv')
 
-class ExpansionTermicaMineral:
+
+
+class ExpansionTermicaMineral ():
     
-    def __init__(self, nombre, dureza, rompimiento_por_fractura, color, composicion, lustre, specific_gravity, sistema_cristalino, exp_termica):
+    def __init__(self, nombre, dureza, rompimiento_por_fractura, color, composicion, lustre, specific_gravity, sistema_cristalino, temp, vol):
         
         super().__init__(self, nombre, dureza, rompimiento_por_fractura, color, composicion, lustre, specific_gravity, sistema_cristalino)
        
-        self.exp_termica= exp_termica
+        self.temp= temp
+        self.vol=vol
         
-    
-    def coeficiente_exp(self):
         
+    def alfa():
+        
+        
+        valores = pd.read_csv('graphite_mceligot_2016.csv')
         temp = valores['celsius_temperature'].tolist()
         vol = valores['volume_cc'].tolist()
-        
-     
-        
-        N = 20
-        x = np.linspace(0,2*np.pi,N)
-        h = x[1] - x[0]
-        
-        def DerivadaCentral(f,x,h):
-    
-            d = 0.
+        i=0
+        coeficientes = []
+        for i in range(len(vol)):
             
-            if h != 0:
-                d = (f(x+h) - f(x-h))/(2*h)
-                
-            return d
+            coeficientes.append ( 1/vol[i]*((max(vol)-min(vol))/(max(temp)-min(temp))))
+            
+            return coeficientes
+        plt.plot(vol,coeficientes)
+            
+            
+            
+            
+            
         
         
+            
+    
+   
+
         
         
         
