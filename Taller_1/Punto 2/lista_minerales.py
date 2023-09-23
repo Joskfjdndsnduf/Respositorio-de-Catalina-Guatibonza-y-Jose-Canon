@@ -43,7 +43,3 @@ def promedio_densidad (lista):
     
 
 
-
-
-"numero_silicatos = contar_silicatos(minerales)"
-
