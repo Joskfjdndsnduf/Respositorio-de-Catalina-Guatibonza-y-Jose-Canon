@@ -36,7 +36,7 @@ def integral(R,N,x,y,z):
     for i in range(N):
         if x[i]**2+y[i]**2+z[i]**2<R**2:
             suma += np.sin(x[i]**2+y[i]**2+z[i]**2)*np.e**(x[i]**2+y[i]**2+z[i]**2)
-    I = (2*R)**2*suma/N
+    I = (2*R)**3*suma/N
     return I
 
 print(integral(R,N,x,y,z))
