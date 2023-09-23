@@ -19,3 +19,19 @@ def GetLaggereRecursive(n,x):
    
     return sym.simplify(poly)
 
+
+
+def GetAllRootsGLagguere(n):
+
+    xn = np.linspace(0,n+((n-1)*np.sqrt(n)),100)
+    
+    Laguerre = []
+    
+    for i in range(n+1):
+        Laguerre.append(GetLaggereRecursive(i,x))
+
+    
+    poly = sym.lambdify([x],Laguerre[n],'numpy')
+    Roots = GetRootsGLeg(poly,xn)
+    
+    return Roots
