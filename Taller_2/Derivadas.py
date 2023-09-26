@@ -16,7 +16,7 @@ def derivada(f, t, h=1e-6):
     return (f(t+h)-f(t-h))/(2*h)
 
 def I(t):
-    return (-1/(0.25/2))*derivada(func,t)
+    return (-1/(1750))*derivada(func,t)
 
 def graficaI(x):
     y=I(x)
@@ -27,25 +27,18 @@ def graficaI(x):
 def newton_rhapson(x_0, f, epsilon):
     x_n = x_0
     while np.abs(f(x_n)) > epsilon:
-        x_n -= f(x_n)/derivada(f,x_n,0.0001)
+        x_n -= f(x_n)/derivada(f,x_n)
     return x_n
 
 def GetNewton(f,df,xn,itmax=10000,precision=1e-14):
-    
     error = 1.
     it = 0
-    
     while error >= precision and it < itmax:
-        
         try:
-            
             xn1 = xn - f(xn)/df(f,xn)
-            
             error = np.abs(f(xn)/df(f,xn))
-            
         except ZeroDivisionError:
             print('Zero Division')
-            
         xn = xn1
         it += 1
         if it == itmax:
@@ -59,22 +52,18 @@ def GetAllRoots(x, tolerancia=10):
     
     for i in x:
         root = GetNewton(I,derivada,i)
-        print(root)
-        
-        if root != False:
-            
-            croot = np.round(root,tolerancia)
 
-            
+        if root != False:
+            croot = np.round(root,tolerancia)
             if croot not in Roots:
                 Roots = np.append(Roots,croot)
-        if len(Roots)==2:
+        if len(Roots)==3:
            break
                 
     Roots.sort()
     
     return Roots
-print(len(GetAllRoots(x)))
+print(GetAllRoots(x))
 
 
 

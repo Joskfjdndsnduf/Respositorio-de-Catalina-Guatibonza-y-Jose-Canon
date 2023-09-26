@@ -82,7 +82,7 @@ def GetWeightsGLag(n):
         weights.append(Weight)
     
     return weights
-print(GetWeightsGLag(3))
+print(GetAllRootsGLag(20))
 
 
 
