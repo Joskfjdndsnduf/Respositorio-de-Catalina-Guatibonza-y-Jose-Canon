@@ -18,7 +18,6 @@ def GetLaggereRecursive(n,x):
         poly = -x+1
     else:
         poly = ((2*n-1-x)*GetLaggereRecursive(n-1,x)-(n-1)*GetLaggereRecursive(n-2,x))/n
-   
     return sym.simplify(poly)
 
 
@@ -75,6 +74,7 @@ def GetAllRootsGLag(n):
 def GetWeightsGLag(n):
 
     Roots = GetAllRootsGLag(n)
+    print(Roots)
     weights=[]
     for i in range(n):
         Lagroot = GetLaggereRecursive(n+1,Roots[i])
@@ -82,7 +82,40 @@ def GetWeightsGLag(n):
         weights.append(Weight)
     
     return weights
-print(GetAllRootsGLag(20))
+
+
+import matplotlib.pyplot as plt
+
+def integral(f,n):
+    pesos=GetWeightsGLag(n)
+    raices=GetAllRootsGLag(n)  
+    I=0
+    for i in range(n):
+        I+= pesos[i]*f(raices[i])
+        i+=1
+    return I
+
+
+f= lambda x: ((x**3)*((np.exp(x))-1))/((np.exp(x))-2+(1/np.exp(x)))
+
+r=np.linspace(1,7,7)
+
+print(integral(f,2))
+
+def graf(n,f):
+    lista=[]
+    for i in n:
+        lista.append(integral(f,int(i))/((np.pi**4)/15))
+    plt.scatter(n,lista)
+    plt.show()
+    
+#graf(r,f) copiar y pegar para el 17
+
+
+  
+                     
+
+
 
 
 
