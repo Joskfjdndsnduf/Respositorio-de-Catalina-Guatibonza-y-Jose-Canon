@@ -119,7 +119,7 @@ def superconductividad(dt,a,b):
         if ((I-1)/0.3)<dt:
             return T
         else:
-            return "no se pudo"
+            return "Tc no obtenido"
         
         
 
