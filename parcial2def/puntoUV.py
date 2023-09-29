@@ -190,8 +190,8 @@ def integrallag(f,n):
 lim1=((6.626*10**-34)*((3*10**8)/(100*10**-9)))/((1.3806*10**-23)*5772)
 lim2=(6.626e-34*((3e8)/(400e-9)))/(1.3806e-23*5772)
 
-n=3
-
+n=7
+#El código no funciona a n mayor de 7 pero funciona y da el número
 def func1(x):
     return x**3/((np.e**x)-1)
 def func2(x):
