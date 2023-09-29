@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep 19 17:54:49 2023
-
-@author: HP
-"""
 import sympy as sym
 import numpy as np
 import matplotlib.pyplot as plt
@@ -75,7 +69,6 @@ def GetAllRootsGLag(n):
 def GetWeightsGLag(n):
 
     Roots = GetAllRootsGLag(n)
-    print(Roots)
     weights=[]
     for i in range(n):
         Lagroot = GetLaggereRecursive(n+1,Roots[i])
@@ -110,18 +103,3 @@ def graf(n,f):
     plt.scatter(n,lista)
     plt.show()
     
-#graf(r,f) copiar y pegar para el 17
-
-
-  
-                     
-
-
-
-
-
-
-
-
-
-
