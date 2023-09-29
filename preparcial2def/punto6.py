@@ -12,7 +12,7 @@ def trapecio(f,a,b):
 
 #print(trapecio(func,-0.01,0.01))
 
-def simpson(f,a,b,x):
+def simpson(f,a,b):
     return (b-a)/6*(f(a)+4*f((a+b)/2))+f(b)
 
-print(simpson(func,-0.01,0.01,x))
+print(simpson(func,-0.01,0.01))

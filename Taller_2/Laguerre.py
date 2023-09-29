@@ -19,6 +19,7 @@ def GetLaggereRecursive(n,x):
         poly = -x+1
     else:
         poly = ((2*n-1-x)*GetLaggereRecursive(n-1,x)-(n-1)*GetLaggereRecursive(n-2,x))/n
+
     return sym.simplify(poly)
 
 
