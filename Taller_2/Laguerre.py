@@ -76,7 +76,7 @@ def GetAllRootsGLag(n):
 def GetWeightsGLag(n):
 
     Roots = GetAllRootsGLag(n)
-    print(Roots)
+
     weights=[]
     for i in range(n):
         Lagroot = GetLaggereRecursive(n+1,Roots[i])
