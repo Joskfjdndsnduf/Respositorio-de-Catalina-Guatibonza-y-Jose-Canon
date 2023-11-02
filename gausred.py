@@ -68,7 +68,6 @@ multiplicación de matrices
 u=np.array([[5,-4,-2],[5,-5,4],[2,5,-4],[-5,4,3],[3,-4,-3]])
 v=np.array([[5,-2,-3]])
 vp=np.transpose(v)
-print(vp)
 def multi(m,vp):
     c1=len(m[0])
     f2=len(vp)
@@ -76,13 +75,32 @@ def multi(m,vp):
         print("las matrices no se pueden multiplicar")
     else:
         f1=len(m)
-        c2=len(vp)
+        c2=len(vp[0])
         r=np.zeros(shape=(f1,c2))
 
-        
+        for i in range(f1):
+            for j in range(c2):
+                for k in range(c1):
+                    r[i][j]+=m[i][k]*vp[k][j]
+        return r
 
-            
-    
-    return print(c1,f2)
+                    
 
-multi(u,vp)
+
+#print(multi(u,vp))
+
+m=np.array([[1,2,-1],[1,0,1],[4,-4,5]])
+
+q=np.array([1,2,1])
+
+def mew(q,m):
+    a=multi(q.T,m)
+    return multi(a,q)
+def potinv(m,q):
+    for i in range(10):
+        z=multi(m,q)
+        q=z/np.sqrt(np.matmul(z.T,z))
+        j=mew(q,m)
+    return j
+
+print(potinv(m,q))
