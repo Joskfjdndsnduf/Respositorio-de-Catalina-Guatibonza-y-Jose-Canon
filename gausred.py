@@ -42,9 +42,10 @@ def reduccion(a):
 Valores propios
 """
         
-m=np.array([[1,2,-1],[1,0,1],[4,-4,5]])
-
-q=np.array([1,2,1])
+#m=np.array([[1,2,-1],[1,0,1],[4,-4,5]])
+m=np.array([[2,-1],[-4,2]])
+q=np.array([4,3])
+#q=np.array([7,8,9])
 
 def mew(q,m):
     a=np.matmul(q.T,m)
@@ -56,7 +57,7 @@ def potinv(m,q):
         j=mew(q,m)
     return j
 
-#print(potinv(m,q))
+print(potinv(m,q))
 
 
 
@@ -103,4 +104,4 @@ def potinv(m,q):
         j=mew(q,m)
     return j
 
-print(potinv(m,q))
+#print(potinv(m,q))
