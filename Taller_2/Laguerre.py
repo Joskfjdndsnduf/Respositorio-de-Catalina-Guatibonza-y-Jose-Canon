@@ -114,8 +114,41 @@ def graf(n,f):
 #graf(r,f) copiar y pegar para el 17
 
 
-  
-                     
+import numpy as np
+
+m = np.array([[1, 2, -1], [1, 0, 1], [4, -4, 5]], dtype=float)
+q = np.array([1, 2, 1], dtype=float)
+
+def multi(m, vp):
+    if len(vp.shape) == 1:  # Comprueba si vp es un vector
+        vp = vp.reshape(-1, 1)  # Convierte vp en una matriz columna
+    c1 = len(m[0])
+    f2, c2 = vp.shape  # Obtiene la forma de vp
+    if c1 != f2:
+        print("Las matrices no se pueden multiplicar")
+    else:
+        f1 = len(m)
+        r = np.zeros(shape=(f1, c2))
+
+        for i in range(f1):
+            for j in range(c2):
+                for k in range(c1):
+                    r[i][j] += m[i][k] * vp[k][j]
+        return r
+
+def mew(q, m):
+    a = multi(m, q)
+    return multi(a, q)
+
+def potinv(m, q):
+    for i in range(10):
+        z = multi(m, q)
+        q = z / np.sqrt(np.matmul(z.T, z))
+        print(q)
+        j = mew(q, q)
+    return j
+
+print(potinv(m, q))
 
 
 
