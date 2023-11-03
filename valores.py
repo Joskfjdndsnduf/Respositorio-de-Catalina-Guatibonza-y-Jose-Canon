@@ -55,7 +55,7 @@ def potmax(m,q):
 #print(potmax(m,q))
 
 def potmin(m,q):
-    for i in range(100):
+    for i in range(10):
         a=np.linalg.inv(m)
         if len(q)==1:
             c=np.transpose(q)
