@@ -45,7 +45,7 @@ Valores propios
 m=np.array([[1,2,-1],[1,0,1],[4,-4,5]])
 #m=np.array([[2,-1],[-4,2]])
 #q=np.array([4,3])
-q=np.array([7,8,9])
+q=np.array([[7,8,9]])
 
 def mew(q,m):
     a=np.matmul(q.T,m)
@@ -58,7 +58,7 @@ def potinv(m,q):
         j=mew(q,m)
     return j
 
-print(potinv(m,q))
+#print(potinv(m,q))
 
 
 
@@ -134,7 +134,7 @@ def potmax(m,q):
             h=np.transpose(z)
             q=z/np.sqrt(multi(h,z))
             j=mew(q,m)
-    return j
+    return j,q
 #print(potmax(m,q))
 """
 mínimo
@@ -153,6 +153,6 @@ def potmin(m,q):
             h=np.transpose(z)
             q=z/np.sqrt(multi(h,z))
             j=mew(q,a)
-    return j
+    return j,q
 
 print(potmin(m,q),potmax(m,q))

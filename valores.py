@@ -69,7 +69,7 @@ def potmin(m,q):
             q=z/np.sqrt(multi(h,z))
             j=mew(q,a)
     return j,q
-
+#Los vectores propios son q
 print(potmin(m,q),potmax(m,q))
 
     
