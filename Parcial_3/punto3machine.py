@@ -19,3 +19,4 @@ def Minimizer(f, N=300, gamma=0.01):
 r=Minimizer(f)
 print(r[-1])
 
+"no tiene sentido que dé el gradiente negativo así que no puede dar debido a que no es diferenciable en la punta de la gráfica haciendo imposible miximizar"
