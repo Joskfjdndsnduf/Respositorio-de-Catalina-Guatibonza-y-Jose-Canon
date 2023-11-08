@@ -1,12 +1,9 @@
 import numpy as np
 import time
 
-c=((9*10**-9)*((3*10**-4)**2))/(25*114.6)
+G = np.array([lambda x,y: -114.6+y*np.cos(x),
+     lambda x,y:((-y*np.sin(x)+270*((1/(4*25*(np.sin(x)**2)))+(np.sqrt(2)/(2*25*(np.sin(x)**2))))))])
 
-print(c)
-G = np.array([
-     lambda x,T: -114.6+T*np.cos(x),
-     lambda x,y:(c)*np.cos(x)-np.sin(x)**3])
 def GetF(G,r):
     
     n = r.shape[0]
@@ -14,7 +11,7 @@ def GetF(G,r):
     v = np.zeros_like(r)
     
     for i in range(n):
-        v[i] = G[i](r[0],r[1],r[2])
+        v[i] = G[i](r[0],r[1])
         
     return v
 
@@ -33,7 +30,7 @@ def GetJacobian(f,r,h=1e-6):
             rf[j] = rf[j] + h
             rb[j] = rb[j] - h
             
-            J[i,j] = ( f[i](rf[0],rf[1],rf[2]) - f[i](rb[0],rb[1],rb[2])  )/(2*h)
+            J[i,j] = (f[i](rf[0],rf[1]) - f[i](rb[0],rb[1]))/(2*h)
             
     
     return J
@@ -58,12 +55,15 @@ def NewtonRaphson(G,r,itmax=1000,error=1e-9):
         d = np.max( np.abs(diff) )
         
         dvector.append(d)
-        print(dvector)
-        
         it += 1
     
-    print(it)
+
     return r,dvector
 
-r,dvector=NewtonRaphson(G,np.array[0.,0.])
+
+
+r,dvector=NewtonRaphson(G,np.array([2,1]))
 print(r)
+print(dvector)
+
+print(np.sin(r[0]))
