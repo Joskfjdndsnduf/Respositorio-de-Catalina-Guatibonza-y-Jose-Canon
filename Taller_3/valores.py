@@ -8,11 +8,11 @@ import numpy as np
 #q=np.array([[1,1,1]])
 
 
-#m=np.array([[3,2,4],[2,0,2],[4,2,3]])
-#q=np.array([[4,3,6]])
+m=np.array([[3,2,4],[2,0,2],[4,2,3]])
+q=np.array([[4,3,6]])
 
-m=np.array([[4,1],[0,4]])
-q=np.array([[1,2]])
+#m=np.array([[4,1],[0,4]])
+#q=np.array([[1,2]])
 def multi(m,vp):
     c1=len(m[0])
     f2=len(vp)
