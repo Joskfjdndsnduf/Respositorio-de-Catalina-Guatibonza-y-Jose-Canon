@@ -1,4 +1,4 @@
-import numpy as np
+
 
 def f2(x,y):
     return x**4 + y**4 - 2*(x-y)**2
