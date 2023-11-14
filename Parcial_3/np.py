@@ -16,17 +16,15 @@ def desc_conj (A,b,v,t=0.01):
     p=-rv
     k=0
     while r > t and k <=5:
-        print(np.dot(np.transpose(r),p))
-
-    
+        
         alf= -(np.dot((r.T),p)/((np.dot(np.dot(p.T,A),p))))
-        x= float(x + np.dot(alf,p))
-        rv= float(np.dot(A,x[k+1])-b)
+        x= x + np.dot(alf,p)
+        rv= np.dot(A,x)-b
         r=np.max(np.absolute(np.max(np.dot(A,v)))) 
-        bk= float((np.dot(r[k+1].T,A)*p[k])/((np.dot(p[k].T),A)*p[k]))
-        pk= float(-r[k+1]+np.dot(b[k+1],p[k]))
+        bk= (np.dot((np.dot(rv.T,A),p))/((np.dot((p.T),A)*p)))
+        pk= -rv+np.dot(bk,p)
         k=k+1
         
-        return x[k]
+        return x
     
 desc_conj(A,b,v.T,t=0.01)
