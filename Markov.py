@@ -12,13 +12,13 @@ punto 1
 '''
 def gen(pri,T,g):
     cont=1
-    for i in g:
+    for i in g[0]:
         if cont==1:
             cont=cont*pri[0][i]
-            print(cont)
             j=i
         else:
-            cont=cont*T[i][j]
+            cont=cont*T[j][i]
+            print(T[j][i])
             j=i
             
     return cont
