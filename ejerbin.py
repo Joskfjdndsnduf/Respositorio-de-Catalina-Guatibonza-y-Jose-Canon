@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 p=np.linspace(0,1)
-N=1000
+N=1000000   
 def graf(p,N,n1,n2):
     
     datos1=[]
