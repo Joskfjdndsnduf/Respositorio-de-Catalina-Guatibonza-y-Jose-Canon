@@ -19,7 +19,6 @@ def graf(p,N,n1,n2):
             if b[j]<=5:
                 acep2+=1
         pa=acep1/N
-        print(pa)
         pa2=acep2/N
         datos1.append(pa)
         datos2.append(pa2)
