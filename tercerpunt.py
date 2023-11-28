@@ -45,7 +45,7 @@ punto_limite=sp.solve(integral-0.281)[0].evalf()
 punto=sp.solve(integral-0.25)[0].evalf()
 notapuntos=punto+5
 mayanotamenormas5=sp.integrate(func,(x,notapuntos,np.inf)).evalf()
-print(mayanotamenormas5)
+#print(mayanotamenormas5)
 
 #3.2.e
 maya84=sp.integrate(func,(x,84,np.inf))
