@@ -1,4 +1,12 @@
 #Pesos y b en el final de código
+'''
+W=[[ 5.74023629]
+ [ 9.52113288]
+ [-2.70831388]
+ [ 0.86145614]
+ [ 3.18454762]]
+b=[[-3.24441616]]
+'''
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,7 +28,10 @@ class Layer:
         self.rate = rate
         
         self.W = np.random.uniform( -10.,10.,(self.NC,self.NN) )
+        print(self.W)
         self.b = np.random.uniform( -10.,10.,(1,self.NN) )
+        print(self.b)
+        
         
     def Activation(self,x):
         z = np.dot(x,self.W) + self.b
@@ -34,7 +45,7 @@ class Layer:
         self.W += np.random.uniform( -self.rate, self.rate, size=(self.NC,self.NN))
         print(self.W)
         self.b += np.random.uniform( -self.rate, self.rate, size=(1,self.NN))
-        print(self.b[0])
+        print(self.b)
 def GetBrain():
     #Primera neurona a 5 neuronas
     l0 = Layer(1,5,sigm)
@@ -273,12 +284,11 @@ def Genetic(Robots, epochs = 200, Plot = True, Plottime=False):
 Robots = GetRobots(200)
 Best, FitVector = Genetic(Robots,Plot=True,Plottime=True) # Apagar Plottime para el entrenamiento
 
-
 '''
-W=[[-5.70022332]
- [ 8.04444991]
- [ 0.17137356]
- [-4.89013222]
- [ 2.56220086]]
-b=[5.86507305]
+W=[[ 5.74023629]
+ [ 9.52113288]
+ [-2.70831388]
+ [ 0.86145614]
+ [ 3.18454762]]
+b=[[-3.24441616]]
 '''
